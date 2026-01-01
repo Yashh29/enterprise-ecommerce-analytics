@@ -20,13 +20,15 @@ st.set_page_config(
 # ---------------------------------------------
 @st.cache_data
 def load_dashboard_data():
-    return pd.read_csv("data/processed/dashboard_data.csv")
+    return pd.read_csv("core/data/processed/dashboard_data.csv")
+
 
 @st.cache_data
 def load_forecast_data():
-    df = pd.read_csv("data/processed/segment_revenue_forecast.csv")
+    df = pd.read_csv("core/data/processed/segment_revenue_forecast.csv")
     df["order_month"] = pd.to_datetime(df["order_month"])
     return df
+
 
 data = load_dashboard_data()
 forecast_df = load_forecast_data()
